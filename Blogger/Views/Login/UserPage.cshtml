@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Register";
+}
+<html>
+    <head>
+        <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+    </head>
+    <body>
+
+        <header>
+            <div class="nav1" style="margin-left:-120px;"  }>
+                  <div class="logo">
+                    <a class="nav-link text-dark" 
+                    asp-area="" 
+                    style="text-decoration: none; 
+                    color: #00008b">
+                       <div style="color:  #00008b">Blogger</div> 
+                     </a>
+                  </div>
+                  <div class="nav-list-container">
+                    <div class="navli1">
+                      <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Login">
+                          <div style="color:  #7f5283">Write</div> 
+                      </a>
+                    </div>
+                    <div class="navli1">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Login">
+                            <div style="color:  #7f5283">LogOut</div>     
+                        </a>
+                    </div>
+                  </div>
+                </div>
+        </header>
+
+
+        <h1 style="margin:100px">
+            Welcome to Blogger
+        </h1>
+
+    </body>
+</html>
+
+@*<script>
+  alert("Succesfully LoggedIn");
+</script>*@
+
+

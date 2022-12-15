@@ -1,0 +1,114 @@
+﻿@model Blogger.Models.Login
+
+
+<html>
+
+<head>
+     <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+</head>
+
+
+<body style="object-fit:cover;
+            background-size:cover; 
+            height: 100vh; 
+            background-image: url('https://cdn.pixabay.com/photo/2022/09/19/19/17/bird-7466310_960_720.jpg');">
+      
+        <header>
+            <div class="nav1" style="margin-left:-120px;"  }>
+                  <div class="logo">
+                    <a class="nav-link text-dark" 
+                    asp-area="" 
+                    asp-controller="Home" 
+                    asp-action="Index" 
+                    style="text-decoration: none; 
+                    color: #00008b">
+                       <div style="color:  #00008b">Blogger</div> 
+                     </a>
+                  </div>
+                  <div class="nav-list-container">
+                    <div class="navli1">
+                        <a class="nav-link text-dark" 
+                        asp-area="" 
+                        asp-controller="Login" 
+                        asp-action="login">
+                        <div style="color:  #7f5283">Login</div> 
+                        </a>
+                    </div>
+                    <div class="navli1">
+                      <a class="nav-link text-dark" asp-area="" asp-controller="Register" asp-action="register">
+                          <div style="color:  #7f5283">Register</div> 
+                      </a>
+                    </div>
+                    <div class="navli1">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Contact" asp-action="contact">
+                            <div style="color:  #7f5283">Contact</div>     
+                        </a>
+                    </div>
+                  </div>
+                </div>
+        </header>
+
+      <div>
+        <div class="center">
+          <form
+            asp-action="LoginUser"
+            class="border p-3 rounded-3"
+            style="background-color: #fefbf6"
+          >
+            <div class="row g-0">
+              <div class="col text-center p-2 mb-3 bg-light">
+                <span class="fs-3">Login</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col mb-3">
+                <label for="email" class="form-label">Email Id</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="id"
+                  asp-for="Email"
+                  required
+                />  
+
+              </div>
+              <div class="col mb-3">
+                <label for="pwd" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="pdw"
+                  asp-for="Password"
+                  required
+                />
+                <span asp-validation-for="Password" class="text-danger"></span>
+              </div>
+            </div>
+
+            <div class="row p-3">
+              <div class="col-6 offset-3">
+                <div class="d-grid">
+                  <button
+                    asp-action="LoginUser"
+                    class="btn btn-primary"
+                    type="submit"
+                  >
+                    Login
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+                <span>Don't have an account?&nbsp;</span>
+                <a asp-controller="register" asp-action="register">Register</a>
+
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+</body>
+</html>

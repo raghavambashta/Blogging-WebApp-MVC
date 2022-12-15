@@ -1,0 +1,101 @@
+﻿@model IEnumerable<Blogger.Models.Post>
+
+@{
+    ViewData["Title"] = "List";
+}
+<head>
+    <script src="https://kit.fontawesome.com/4b0063995e.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body style="object-fit:cover;
+        background-size:cover; 
+        height: 100vh; 
+        overflow:hidden;
+        background-image: url('https://images.unsplash.com/photo-1432821596592-e2c18b78144f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');">
+
+
+        
+        <header>
+            <div class="nav1" style="margin-left:-120px;"  }>
+                  <div class="logo">
+                    <a class="nav-link text-dark" 
+                    asp-area="" 
+                    style="text-decoration: none; 
+                    color: #00008b">
+                       <div style="color:  #00008b">Blogger</div> 
+                     </a>
+                  </div>
+                  <div class="nav-list-container">
+                    <div class="navli1">
+                      <a class="nav-link text-dark" asp-area="" asp-controller="Post" asp-action="new">
+                          <div style="color:  #7f5283">Write Post</div> 
+                      </a>
+                    </div>
+                    <div class="navli1">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Login">
+                            <div style="color:  #7f5283">Log Out</div>     
+                        </a>
+                    </div>
+                  </div>
+                </div>
+        </header>
+
+
+ <div class="container" style="background-color: azure; border-radius: 7px; margin-top:10vh;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: larger;">
+
+
+        <table class="table">
+            <thead>
+                <tr style="color: rgb(209, 8, 199); ">
+                    <th style="padding-left:200px">
+                        @Html.DisplayNameFor(model => model.Title)
+                    </th>
+
+                    <th>
+                        Posted On
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td width="70%">
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+
+                        <td >
+                            @Html.DisplayFor(modelItem => item.PostedOn)
+                        </td>
+
+                        <td>
+                            <form style="display:inline-block" asp-action="Details" asp-route-id="@item.Id">                    
+                                    <button type="submit" class="btn btn-info">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                            </form>
+
+                            <form style="display:inline-block" asp-action="Edit" asp-route-id="@item.Id">                    
+                                    <button type="submit" class="btn btn-warning">
+                                        <i class="fa-solid fa-pencil"></i>
+                                    </button>
+                            </form>
+
+                            <form style="display:inline-block" asp-action="Delete" asp-route-id="@item.Id">                    
+                                    <button type="submit" class="btn btn-danger"
+                                        onclick="return confirm('Are you sure to delete this record?')">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        </div>
+
+</body>

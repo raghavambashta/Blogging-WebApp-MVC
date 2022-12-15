@@ -1,0 +1,50 @@
+﻿<html>
+    <head>
+        <link rel="stylesheet" href="~/css/welcome.css" asp-append-version="true" />
+    </head>
+
+            <header>
+            <div class="nav1" style="margin-left:-120px;"  }>
+                  <div class="logo">
+                    <a class="nav-link text-dark" 
+                    asp-area="" 
+                    asp-controller="Home" 
+                    asp-action="Index" 
+                    style="text-decoration: none; 
+                    color: #00008b">
+                       <div style="color:  #00008b">Blogger</div> 
+                     </a>
+                  </div>
+                  <div class="nav-list-container">
+                    <div class="navli1">
+                        <a class="nav-link text-dark" 
+                        asp-area="" 
+                        asp-controller="Login" 
+                        asp-action="login">
+                        <div style="color:  #7f5283">Login</div> 
+                        </a>
+                    </div>
+                    <div class="navli1">
+                      <a class="nav-link text-dark" asp-area="" asp-controller="Register" asp-action="register">
+                          <div style="color:  #7f5283">Register</div> 
+                      </a>
+                    </div>
+                    <div class="navli1">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Contact" asp-action="contact">
+                            <div style="color:  #7f5283">Contact</div>     
+                        </a>
+                    </div>
+                  </div>
+                </div>
+        </header>
+
+
+    <body
+        style="object-fit:cover;
+        overflow: hidden;
+        background-size:cover; 
+        height: 100vh; 
+        background-image: url('https://raw.githubusercontent.com/raghavambashta/Blogging-WebApp-Angular-Asp.Net/master/Blogger%20-%20Angular%20Client/src/assets/bg.jpg');">
+    </body>
+</html>
+

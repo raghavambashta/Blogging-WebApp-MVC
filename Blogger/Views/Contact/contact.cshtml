@@ -1,0 +1,129 @@
+﻿@model Blogger.Models.Contact
+@{
+    ViewData["Title"] = "contact";
+}
+
+
+<html>
+    <head>
+        <link rel="stylesheet" href="~/css/contact.css" asp-append-version="true" />
+        
+    </head>
+
+    <body style="overflow:hidden">
+        
+         
+        <header>
+            <div class="nav1" style="margin-left:-120px;"  }>
+                  <div class="logo">
+                    <a class="nav-link text-dark" 
+                    asp-area="" 
+                    asp-controller="Home" 
+                    asp-action="Index" 
+                    style="text-decoration: none; 
+                    color: #00008b">
+                       <div style="color:  #00008b; font-weight:800">Blogger</div> 
+                     </a>
+                  </div>
+                  <div class="nav-list-container">
+                    <div class="navli1">
+                        <a class="nav-link text-dark" 
+                        asp-area="" 
+                        asp-controller="Login" 
+                        asp-action="login">
+                        <div style="color:  #7f5283">Login</div> 
+                        </a>
+                    </div>
+                    <div class="navli1">
+                      <a class="nav-link text-dark" asp-area="" asp-controller="Register" asp-action="register">
+                          <div style="color:  #7f5283">Register</div> 
+                      </a>
+                    </div>
+                    <div class="navli1">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Contact" asp-action="contact">
+                            <div style="color:  #7f5283">Contact</div>     
+                        </a>
+                    </div>
+                  </div>
+                </div>
+        </header>
+
+          <form asp-action="Add">
+          <div class="wrapper">
+            <div class="title">
+              <h1>Get in Touch...</h1>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="contact-form">
+              <div class="input-fields">
+                <div class="row">
+                  <div style="margin-top: 5px" class="col-4">
+                    <select
+                      style="color: #c5ecfd"
+                      class="input"
+                      name="title"
+                      id="title"
+                    >
+                      <option style="color: black" value="issue">Mr.</option>
+                      <option style="color: black" value="user">Ms.</option>
+                      <option style="color: black" value="feedback">Mrs.</option>
+                    </select>
+                  </div>
+                  <input asp-for="Name" type="text" class="input col" placeholder="Name" required/>
+                </div>
+                <input asp-for="Email" type="email" class="input" placeholder="Email Id" required/>
+                <input asp-for="Phone" type="text" class="input" placeholder="Phone" required/>
+
+                <div>
+                    <input
+                      asp-for="Gender"
+                      type="radio"
+                      id="male"
+                      name="Gender"
+                      value="male"
+                    />
+                    <label  style="color: #c5ecfd" for="male">Male</label> &nbsp;&nbsp; &nbsp;&nbsp;
+                    <input
+                      asp-for="Gender"
+                      type="radio"
+                      id="female"
+                      name="Gender"
+                      value="female"
+                    />
+                    <label  style="color: #c5ecfd" for="female">Female</label>
+                  </div>
+
+
+                <select
+                  style="color: #c5ecfd"
+                  class="input"
+                  name="subject"
+                  id="subject"
+                  asp-for="Subject"
+                  
+                >
+                  <option style="color: black" value="NA">Select one Item</option>
+                  <option style="color: black" value="issue">Report an Issue</option>
+                  <option style="color: black" value="feedback">Feedback</option>
+                  <option style="color: black" value="other">Other</option>
+                </select>
+              </div>
+              <div class="msg">
+                <textarea asp-for="Message" placeholder="Write your message to us..." required></textarea>
+              </div>
+            </div>
+            <div class="row p-3">
+              <div class="col-6 offset-3">
+                <div class="d-grid">
+                  <button asp-controller="contact" asp-action="Add" type="submit" class="btn btn-primary">Send</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </form>
+
+
+
+
+    </body>
+</html>

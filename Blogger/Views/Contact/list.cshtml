@@ -1,0 +1,124 @@
+﻿@model IEnumerable<Blogger.Models.Contact>
+
+@{
+    ViewData["Title"] = "list";
+}
+<head>
+    <script src="https://kit.fontawesome.com/4b0063995e.js" crossorigin="anonymous"></script>
+</head>
+
+<body style="object-fit:cover;
+        background-size:cover; 
+        height: 100vh; 
+        overflow:hidden;
+        background-image: url('https://images.unsplash.com/uploads/1413222992504f1b734a6/1928e537?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');">
+
+
+        <header>
+            <div class="nav1" style="margin-left:-120px;"  }>
+                  <div class="logo">
+                    <a class="nav-link text-dark" 
+                    asp-area="" 
+                    asp-controller="Home" 
+                    asp-action="Index" 
+                    style="text-decoration: none; 
+                    color: #00008b">
+                       <div style="color:  #00008b; font-weight:800">Blogger</div> 
+                     </a>
+                  </div>
+                  <div class="nav-list-container">
+                    <div class="navli1">
+                        <a class="nav-link text-dark" 
+                        asp-area="" 
+                        asp-controller="Login" 
+                        asp-action="login">
+                        <div style="color:  #7f5283">Login</div> 
+                        </a>
+                    </div>
+                    <div class="navli1">
+                      <a class="nav-link text-dark" asp-area="" asp-controller="Register" asp-action="register">
+                          <div style="color:  #7f5283">Register</div> 
+                      </a>
+                    </div>
+                    <div class="navli1">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Contact" asp-action="contact">
+                            <div style="color:  #7f5283">Contact</div>     
+                        </a>
+                    </div>
+                  </div>
+                </div>
+        </header>
+
+
+ <div class="container" style="background-color: azure; border-radius: 7px; margin-top:10vh;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: larger;">
+
+
+        <table class="table">
+            <thead>
+                <tr style="color: rgb(209, 8, 199); ">
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th style="padding-left:60px">
+                         @Html.DisplayNameFor(model => model.Email)   
+                    </th>
+                    
+                    <th style="padding-left:30px">
+                        @Html.DisplayNameFor(model => model.Phone)
+                    </th>
+                    <th >
+                        @Html.DisplayNameFor(model => model.Gender)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Subject)
+                    </th>
+                    <th  style="padding-left:30px">
+                        @Html.DisplayNameFor(model => model.Message)
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Gender)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Subject)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Message)
+                            
+                        </td>
+
+                        <td>
+                            <form asp-action="Delete" asp-route-id="@item.Id">                    
+                                    <button type="submit" class="btn btn-danger"
+                                        onclick="return confirm('Are you sure to delete this record?')">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        </div>
+
+</body>
+  

@@ -1,0 +1,153 @@
+﻿@model Blogger.Models.User
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+<html>
+    <head>
+        <link rel="stylesheet" href="~/css/register.css" asp-append-version="true" />
+        
+    </head>
+    <body style="object-fit:cover;
+        background-size:cover; 
+        height: 100vh; 
+        background-image: url('https://cdn.pixabay.com/photo/2017/10/14/09/56/journal-2850091_960_720.jpg');">
+        
+        <header>
+            <div class="nav1" style="margin-left:-120px;"  }>
+                  <div class="logo">
+                    <a class="nav-link text-dark" 
+                    asp-area="" 
+                    asp-controller="Home" 
+                    asp-action="Index" 
+                    style="text-decoration: none; 
+                    color: #00008b">
+                       <div style="color:  #00008b">Blogger</div> 
+                     </a>
+                  </div>
+                  <div class="nav-list-container">
+                    <div class="navli1">
+                        <a class="nav-link text-dark" 
+                        asp-area="" 
+                        asp-controller="Login" 
+                        asp-action="login">
+                        <div style="color:  #7f5283">Login</div> 
+                        </a>
+                    </div>
+                    <div class="navli1">
+                      <a class="nav-link text-dark" asp-area="" asp-controller="Register" asp-action="register">
+                          <div style="color:  #7f5283">Register</div> 
+                      </a>
+                    </div>
+                    <div class="navli1">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Contact" asp-action="contact">
+                            <div style="color:  #7f5283">Contact</div>     
+                        </a>
+                    </div>
+                  </div>
+                </div>
+        </header>
+        
+        <div class="bg-container">
+          <div class="center">
+
+            <form
+              asp-action="AddOrEdit" autocomplete="off"
+              style="background-color: #fefbf6"
+              class="border p-3 rounded-3"
+    
+            >
+              <input type="hidden" asp-for="Id" />
+              <div class="row g-0">
+                <div class="col text-center p-2 mb-3 bg-light">
+                  <span class="fs-3">Create an account</span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    asp-for="UserName"
+                    required
+                  />
+
+                  
+                </div>
+              </div>
+              <div class="row">
+                <div class="col mb-3">
+                  <label for="email" class="form-label">Email Id</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    asp-for="Email"
+                    required
+                  />
+
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                          <label for="pwd" class="form-label">Password</label>
+                          <input
+                            maxlength="15"
+                            minLength="8"
+                            type="password"
+                            class="form-control"
+                            id="pwd"
+                            asp-for="Password"
+                            required
+                          />
+                          <small>Password must be 8 to 15 characters long</small><br />
+                    </div>
+
+                    <div class="col mb-3">
+                          <label for="rpwd" class="form-label">Repeat Password</label>
+                          <input
+                            maxlength="15"
+                            minLength="8"
+                            type="password"
+                            class="form-control"
+                            id="rpwd"
+                            required
+                          />
+                    
+                    </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-6 offset-3">
+                  <div class="d-grid">
+                    <button
+                        id="toastrSuccess"
+                        asp-action="AddOrEdit"
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                      Register
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        
+    </body>
+</html>
+
+@*@section Scripts{
+    <script type="text/javascript">
+        $(function() {
+            $("#toastrSuccess").click(function() {
+                alert("Successfully Registered");
+            });
+        });
+    </script>
+}*@

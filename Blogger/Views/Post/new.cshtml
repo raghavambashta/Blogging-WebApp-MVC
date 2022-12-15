@@ -1,0 +1,166 @@
+﻿@model Blogger.Models.Post
+@{
+    ViewData["Title"] = "New";
+}
+
+<html>
+
+<head>
+     <link rel="stylesheet" href="~/css/newPost.css" asp-append-version="true" />
+
+    <script src="https://kit.fontawesome.com/4b0063995e.js" crossorigin="anonymous"></script>
+
+</head>
+
+
+
+<body style="object-fit:cover;
+            overflow:hidden;
+            background-size:cover; 
+            height: 100vh; 
+            background-image: url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80');">
+     
+        <header>
+            <div class="nav1" style="margin-left:-120px;"  }>
+                  <div class="logo">
+                    <a asp-controller="Post" asp-action="list" class="nav-link text-dark" 
+                    asp-area="" 
+                    style="text-decoration: none; 
+                    color: #00008b">
+                       <div style="color:  #00008b">Blogger</div> 
+                     </a>
+                  </div>
+                  <div class="nav-list-container">
+                    <div class="navli1">
+                      <a class="nav-link text-dark" asp-area="" asp-controller="Post" asp-action="List">
+                          <div style="color:  #7f5283">Back to List</div> 
+                      </a>
+                    </div>
+                    <div class="navli1">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Login">
+                            <div style="color:  #7f5283">Log Out</div>     
+                        </a>
+                    </div>
+                  </div>
+                </div>
+        </header>
+
+
+
+<div class="d-flex justify-content-center signBody align-middle ">
+
+  <div  style="margin-top:10vh; background-color:#E1FFB1" class="card loginCard">
+    <header style="background-color:#E1FFB1" class="card-header">
+        <h4  class="card-title mt-2 text-center">Create Your Blog</h4>
+    </header>
+    <article class="card-body">
+        <form asp-action="AddorEdit">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input asp-for="Title" required type="text" class="form-control editTitle" placeholder="Add a Title" >
+            </div>
+            <div class="form-group" >
+                <textarea asp-for="Description" style="height:200px" class="form-control editBody" placeholder="Write your blog"></textarea>
+            </div>
+
+            <label style="margin-left:10px" for="coding"> Coding &nbsp;</label>
+            <input id="coding" type="checkbox" value="Coding" onclick="myFunction1()" />
+            <span> &nbsp; &nbsp; &nbsp;</span>
+
+            <label for="webdev"> Web Dev &nbsp;</label>
+            <input id="webdev" type="checkbox" value="Web Dev" onclick="myFunction2()" />
+            <span> &nbsp; &nbsp; &nbsp;</span>
+
+            <label for="mobile"> Mobile Dev &nbsp;</label>
+            <input id="mobile" type="checkbox" value="Mobile Dev" onclick="myFunction3()" />
+            <span> &nbsp; &nbsp; &nbsp;</span>
+
+            <label for="blockchain"> Blockchain &nbsp;</label>
+            <input id="blockchain" type="checkbox" value="Blockchain" onclick="myFunction4()" />
+            <span> &nbsp; &nbsp; &nbsp;</span>
+
+            <label for="aiml"> AI/ML &nbsp;</label>
+            <input id="aiml" type="checkbox" value="AI/ML" onclick="myFunction5()" />
+            <span> &nbsp; &nbsp; &nbsp;</span>
+
+            <label for="crypto"> Crypto &nbsp;</label>
+            <input id="crypto" type="checkbox" value="Crypto" onclick="myFunction6()" />
+            <span> &nbsp; &nbsp; &nbsp;</span>
+
+            <p id="result" type="hidden" style="display: none"></p> 
+            <input id="final" asp-for="Author" style="display: none"/>
+
+
+            <div style="margin-top:5px; margin-left:10px" class="form-group">
+                <p> Select a date: <input required asp-for="PostedOn" type="date"> </p>
+                
+            </div>
+
+            <div class="form-group">
+                <button asp-action="AddorEdit" type="submit" class="btn btn-success btn-block"><i class="fa-solid fa-paper-plane"></i> </button>
+
+              <button type="reset" class="btn btn-secondary btn-block"> <i class="fa-solid fa-x"></i> </button>
+            </div>
+        </form>
+    </article>
+  </div>
+</div>  
+</body>
+</html>
+
+<script>
+    function myFunction1() {
+    var checkBox1 = document.getElementById("coding");
+	    if(checkBox1.checked == true){
+		     let res = (document.getElementById("coding")).value + ", " + (document.getElementById("result").innerHTML)
+             document.getElementById("result").innerHTML = res;
+             console.log(document.getElementById("result").value);
+             document.getElementById("final").value = res;
+        }
+    }
+    function myFunction2() {
+    var checkBox1 = document.getElementById("webdev");
+	    if(checkBox1.checked == true){
+		     let res = (document.getElementById("webdev")).value + ", " + (document.getElementById("result").innerHTML)
+             document.getElementById("result").innerHTML = res;
+             console.log(document.getElementById("result").value);
+             document.getElementById("final").value = res;
+        }
+    }
+    function myFunction3() {
+    var checkBox1 = document.getElementById("mobile");
+	    if(checkBox1.checked == true){
+		     let res = (document.getElementById("mobile")).value + ", " + (document.getElementById("result").innerHTML)
+             document.getElementById("result").innerHTML = res;
+             console.log(document.getElementById("result").value);
+             document.getElementById("final").value = res;
+        }
+    }
+    function myFunction4() {
+    var checkBox1 = document.getElementById("blockchain");
+	    if(checkBox1.checked == true){
+		     let res = (document.getElementById("blockchain")).value + ", " + (document.getElementById("result").innerHTML)
+             document.getElementById("result").innerHTML = res;
+             console.log(document.getElementById("result").value);
+             document.getElementById("final").value = res;
+        }
+    }
+    function myFunction5() {
+    var checkBox1 = document.getElementById("aiml");
+	    if(checkBox1.checked == true){
+		     let res = (document.getElementById("aiml")).value + ", " + (document.getElementById("result").innerHTML)
+             document.getElementById("result").innerHTML = res;
+             console.log(document.getElementById("result").value);
+             document.getElementById("final").value = res;
+        }
+    }
+    function myFunction6() {
+    var checkBox1 = document.getElementById("crypto");
+	    if(checkBox1.checked == true){
+		     let res = (document.getElementById("crypto")).value + ", " + (document.getElementById("result").innerHTML)
+             document.getElementById("result").innerHTML = res;
+             console.log(document.getElementById("result").value);
+             document.getElementById("final").value = res;
+        }
+    }
+</script>

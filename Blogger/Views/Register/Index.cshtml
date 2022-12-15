@@ -1,0 +1,103 @@
+﻿@model IEnumerable<Blogger.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<head>
+    <script src="https://kit.fontawesome.com/4b0063995e.js" crossorigin="anonymous"></script>
+</head>
+
+
+<body style="object-fit:cover;
+        background-size:cover; 
+        height: 100vh; 
+        overflow:hidden;
+        background-image: url('https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80');">
+<header>
+            <div class="nav1" style="margin-left:-120px;"  }>
+                
+                  <div class="logo">
+                    <div class="nav-link text-dark" 
+                    asp-area="" 
+                    style="text-decoration: none; 
+                    color: #00008b">
+                        <a  style="color:  #00008b; font-weight:800; text-decoration:none" asp-controller="Post" asp-action="List">
+                            <div>Blogger</div> 
+                       </a>
+                     </div>
+                  </div>
+                  <div class="nav-list-container">
+
+                    <div class="navli1">
+                      <a class="nav-link text-dark" asp-area="" asp-controller="Register" asp-action="register">
+                          <div style="color:  #7f5283">Write Post</div> 
+                      </a>
+                    </div>
+                    <div class="navli1">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
+                            <div style="color:  #7f5283">Log Out</div>     
+                        </a>
+                    </div>
+                  </div>
+                </div>
+        </header>
+
+
+
+
+    <div class="container" style="background-color: azure; border-radius: 7px; margin-top:10vh;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: larger;">
+        <table class="table">
+            <thead>
+                <tr style="color: rgb(209, 8, 199)">
+                    <th >
+                        Name
+                    </th>
+                    <th style="padding-left:60px">
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                        <div style="margin-left:250px"> @Html.DisplayNameFor(model => model.Password)</div>
+                       
+                    </th>
+                    <th>
+                        <a asp-action="Register" class="btn btn-sm btn-success">
+                             New
+                        </a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Password)
+                        </td>
+                        <td>
+                            <form asp-action="Delete" asp-route-id="@item.Id">
+                                <div class="btn-group btn-group-sm">
+                                    @*<a asp-action="Register" asp-route-id="@item.Id" class="btn btn-warning">
+                                        Edit
+                                    </a>*@
+                                    <button type="submit" class="btn btn-danger"
+                                        onclick="return confirm('Are you sure to delete this record?')">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        </div>
+
+  </body>
